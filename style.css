@@ -8,6 +8,8 @@
 }
 
 
+
+
 :root {
   --bg01: #010409;
   --container-bg01: #010409;
@@ -18,11 +20,12 @@
   --col01: #E6EDF3;
   --col02: #00c2c2;
   --icon01: #8D96A0;
-
-
 }
 
-
+a {
+  text-decoration: none;
+  color: var(--col02);
+}
 
 body {
   background: var(--bg01);
@@ -38,16 +41,100 @@ body {
   width: 100%;
   max-width: 1000px;
   min-height: 1000px;
-  margin: 35px;
+  margin: 0px;
   background: var(--container-bg01);
+  border-radius: 10px;
+  overflow: hidden;
 
   display: grid;
   grid-template-columns: 1fr 2fr;
-  box-shadow: 0 35px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 50px var(--col02);
 }
 
+
+/* HEADER */
 header {
+  padding: 20px 0;
   color: var(--col02);
+}
+
+.header-menu {
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* THEME CHANGER */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 30px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  display: none;
+}
+
+/* The slider */
+.theme-changer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-changer span {
+  padding: 0 10px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--icon01);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--col01);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: var(--col02);
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px var(--col02);
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
+}
+
+/* Rounded sliders */
+.slider {
+  border-radius: 34px;
+}
+
+.slider:before {
+  border-radius: 50%;
 }
 
 /* LEFT SIDE */
@@ -93,7 +180,7 @@ header {
   padding-top: 40px;
 }
 
-.left-side .title {
+.title {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
@@ -151,10 +238,6 @@ ul {
   background: var(--col02);
 }
 
-
-
-
-
 /* RIGHT SIDE */
 
 .right-side {
@@ -164,8 +247,28 @@ ul {
   padding: 40px;
 }
 
+.right-section {
+  padding: 30px 0;
+}
+
+.right-section .title {
+  color: var(--col02);
+}
+
+.work h4 {
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.work li:not(:last-child) {
+  padding-bottom: 15px;
+}
+
+
 
 /* FOOTER */
 footer {
+  padding: 20px 0;
   color: var(--icon01);
 }
